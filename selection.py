@@ -2,23 +2,22 @@
 
 arr = [5, 3, 8, 2, 4, 1, 9, 7, 6]
 
-min = arr[0]
 
 # find the smallest element
 for i in range(len(arr)):
+
+    # assign min as the first element in the array
+    min = i
+
     for j in range(i+1, len(arr)):
-        curr = arr[i+1]
+        curr = arr[j]
 
-        if curr < min:
+        if curr < arr[min]:
             # update min
-            min = arr[j]
+            min = j
 
-            # swap the min with the position you STARTED the search
-            startIndex = arr.index(5)
-            minIndex = arr.index(1)
+    # swap the min with the position you STARTED the search
+    arr[i],  arr[min] = arr[min], arr[i]
 
-            arr[startIndex],  arr[minIndex] = arr[minIndex], arr[startIndex]
-
-
-print("min: " + str(min))
+# display
 print(arr)
